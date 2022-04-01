@@ -38,6 +38,41 @@ function selection() {
     removeSelection(nameCategory);
     addSelection(el);
     const total = addPriceAndTotal(el, nameCategory);
+
+    if (total) {
+        changeButton(total);
+    }
+}
+
+function modalPedido() {
+    const modal = document.getElementById("totalModal");
+
+    modal.style.display = "block";
+
+    const span = document.getElementsByClassName("close")[0];
+    const close = document.getElementsByClassName("close")[1];
+
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    close.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function changeButton(total) {
+    const button = document.getElementById('order-button');
+    button.innerText = `Fechar pedido - Total: R$ ${total.replace('.', ',')}`;
+    button.style.backgroundColor = '#32B72F';
+    button.removeAttribute('disabled');
 }
 
 function removeSelection(nameCategory) {
@@ -55,17 +90,23 @@ function addSelection(el) {
 
 function addPriceAndTotal(el, nameCategory) {
     let price = el.childNodes[7].innerText;
+    let name = el.childNodes[3].innerText;
     price = price.replace('R$', '').trim().replace(',', '.');
 
     let total = Number(sessionStorage.getItem('total'));
-    const oldPrice = sessionStorage.getItem(nameCategory) ?? false;
+    const oldItem = JSON.parse(sessionStorage.getItem(nameCategory)) ?? false;
 
-    if (oldPrice) {
-        total -= oldPrice;
+    if (oldItem) {
+        total -= oldItem.price;
     }
 
-    total+=Number(price);
-    sessionStorage.setItem(nameCategory, price);
+    total += Number(price);
+
+    const productData = {
+        name, price
+    };
+
+    sessionStorage.setItem(nameCategory, JSON.stringify(productData));
     sessionStorage.setItem('total', total.toString());
 
     if (sessionStorage.length === 4) {

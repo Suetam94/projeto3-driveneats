@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <!-- SLIDER -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <!--[if (lt IE 9)]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script>
+    <![endif]-->
     <!-- PERSONALIZED CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -120,7 +122,40 @@
     </main>
 
     <footer>
-        <button id="order-button">Selecione os 3 itens para fechar o pedido</button>
+        <button type="button" onclick="modalPedido()" id="order-button" disabled>Selecione os 3 itens para fechar o
+            pedido
+        </button>
+
+        <div id="totalModal" class="modal">
+            <div class="modal-content">
+                <div class="header">
+                    <h4>Confirme seu pedido</h4>
+                    <span class="close">&times;</span>
+                </div>
+                <ul class="body">
+                    <li class="summary">
+                        <span>Frango Yin Yang</span>
+                        <span>14,90</span>
+                    </li>
+                    <li class="summary">
+                        <span>Coquinha gelada</span>
+                        <span>4,90</span>
+                    </li>
+                    <li class="summary">
+                        <span>Pudim</span>
+                        <span>7,90</span>
+                    </li>
+                    <li class="total">
+                        <span>TOTAL</span>
+                        <span>R$ 27,70</span>
+                    </li>
+                </ul>
+                <div class="footer">
+                    <button type="button">Tudo certo, pode pedir!</button>
+                    <a class="close">Cancelar</a>
+                </div>
+            </div>
+        </div>
     </footer>
 </div>
 
