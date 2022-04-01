@@ -76,10 +76,15 @@ header span {
     margin-right: 16px;
 }
 
+.option img, option span {
+    pointer-events: none;
+}
+
 .option img {
     width: 144px;
     height: 87px;
     border-radius: 4px;
+    pointer-events: none;
 }
 
 .title {
@@ -88,6 +93,7 @@ header span {
     line-height: 19px;
     color: #333;
     margin-top: 8px;
+    pointer-events: none;
 }
 
 .description {
@@ -96,6 +102,7 @@ header span {
     line-height: 18px;
     color: #A6A6A6;
     margin-top: 12px;
+    pointer-events: none;
 }
 
 .price {
@@ -104,6 +111,7 @@ header span {
     line-height: 19px;
     color: #000;
     margin-top: 12px;
+    pointer-events: none;
 }
 
 .food-option, .drink-option, .dessert-option {
