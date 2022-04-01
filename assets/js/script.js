@@ -49,14 +49,7 @@ function modalPedido() {
 
     modal.style.display = "block";
 
-    const span = document.getElementsByClassName("close")[0];
-    const close = document.getElementsByClassName("close")[1];
-
-
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
+    const close = document.getElementsByClassName("close")[0];
     close.onclick = function () {
         modal.style.display = "none";
     }
