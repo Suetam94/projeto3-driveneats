@@ -24,6 +24,9 @@ a {
 
 /* HEADER */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     background: #CF2B2B;
     display: flex;
     justify-content: center;
@@ -126,6 +129,8 @@ header span {
 /* FOOTER */
 
 footer {
+    position: sticky;
+    bottom: 0;
     background: #fff;
     height: 92px;
     display: flex;
