@@ -46,18 +46,22 @@ function selection() {
 
 function modalPedido() {
     const modal = document.getElementById("totalModal");
+    const header = document.querySelector('header');
 
     modalData();
 
+    header.style.zIndex = '0';
     modal.style.display = "block";
 
     const close = document.getElementsByClassName("close")[0];
     close.onclick = function () {
+        header.style.zIndex = '1';
         modal.style.display = "none";
     }
 
     window.onclick = function (event) {
         if (event.target === modal) {
+            header.style.zIndex = '1';
             modal.style.display = "none";
         }
     }
