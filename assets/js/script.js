@@ -74,6 +74,20 @@ function modalData() {
     const dessert = JSON.parse(sessionStorage.getItem('dessert'));
     const total = Number(sessionStorage.getItem('total')).toFixed(2);
 
+    const confirmBtn = document.getElementById('confirm-button');
+
+    const whatsappText = encodeURI(`Olá, gostaria de fazer o pedido:
+- Prato: ${food.name}
+- Bebida: ${drink.name}
+- Sobremesa: ${dessert.name}
+Total: R$ ${total.replace('.', ',')}`);
+
+    const url = ' https://wa.me/5549988408008?text=';
+
+    confirmBtn.setAttribute('href', url + whatsappText);
+    confirmBtn.setAttribute('target', '_blank');
+
+
     modalData.innerHTML = `
         <li class="summary">
           <span>${food.name}</span>

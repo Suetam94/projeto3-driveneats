@@ -221,7 +221,10 @@ footer {
     margin-top: 24px;
 }
 
-.modal-content .footer button {
+#confirm-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     width: 329px;
     height: 52px;
@@ -230,7 +233,6 @@ footer {
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
-    text-align: center;
     letter-spacing: 0.018em;
     color: #50D074;
     cursor: pointer;
