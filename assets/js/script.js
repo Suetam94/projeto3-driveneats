@@ -47,6 +47,8 @@ function selection() {
 function modalPedido() {
     const modal = document.getElementById("totalModal");
 
+    modalData();
+
     modal.style.display = "block";
 
     const close = document.getElementsByClassName("close")[0];
@@ -59,6 +61,33 @@ function modalPedido() {
             modal.style.display = "none";
         }
     }
+}
+
+function modalData() {
+    const modalData = document.getElementById('modalData');
+    const food = JSON.parse(sessionStorage.getItem('food'));
+    const drink = JSON.parse(sessionStorage.getItem('drink'));
+    const dessert = JSON.parse(sessionStorage.getItem('dessert'));
+    const total = Number(sessionStorage.getItem('total')).toFixed(2);
+
+    modalData.innerHTML = `
+        <li class="summary">
+          <span>${food.name}</span>
+          <span>R$ ${food.price.replace('.', ',')}</span>
+        </li>
+        <li class="summary">
+           <span>${drink.name}</span>
+          <span>R$ ${drink.price.replace('.', ',')}</span>
+        </li>
+        <li class="summary">
+          <span>${dessert.name}</span>
+          <span>R$ ${dessert.price.replace('.', ',')}</span>
+        </li>
+        <li class="total">
+          <span>TOTAL</span>
+          <span>R$ ${total.replace('.', ',')}</span>
+        </li>
+    `;
 }
 
 function changeButton(total) {
