@@ -13,9 +13,16 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <!-- SLIDER -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <!--[if (lt IE 9)]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script>
+    <![endif]-->
     <!-- PERSONALIZED CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script>
+        sessionStorage.clear();
+        sessionStorage.setItem('total', '0');
+    </script>
 </head>
 <body>
 <div class="container">
@@ -28,94 +35,109 @@
         <section class="food-option">
             <h3 class="section-title">Primeiro, seu prato</h3>
             <div id="food-options" class="options">
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/food/chicken.svg" alt="Frango Yin Yang">
                     <span class="title">Frango Yin Yang</span>
                     <span class="description">Um pouco de batata, um pouco de salada</span>
                     <span class="price">R$ 14,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/food/chicken.svg" alt="Frango Yin Yang">
-                    <span class="title">Frango Yin Yang</span>
+                    <span class="title">Frango Yang Yin</span>
                     <span class="description">Um pouco de batata, um pouco de salada</span>
-                    <span class="price">R$ 14,90</span>
+                    <span class="price">R$ 15,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/food/chicken.svg" alt="Frango Yin Yang">
-                    <span class="title">Frango Yin Yang</span>
+                    <span class="title">Yin Frango Yang</span>
                     <span class="description">Um pouco de batata, um pouco de salada</span>
-                    <span class="price">R$ 14,90</span>
+                    <span class="price">R$ 16,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/food/chicken.svg" alt="Frango Yin Yang">
-                    <span class="title">Frango Yin Yang</span>
+                    <span class="title">Yang Frango Yin</span>
                     <span class="description">Um pouco de batata, um pouco de salada</span>
-                    <span class="price">R$ 14,90</span>
+                    <span class="price">R$ 17,90</span>
                 </a>
             </div>
         </section>
         <section class="drink-option">
             <h3 class="section-title">Agora, sua bebida</h3>
             <div id="drink-options" class="options">
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/drink/coke.svg" alt="Coquinha gelada">
                     <span class="title">Coquinha gelada</span>
                     <span class="description">Lata 350ml</span>
                     <span class="price">R$ 4,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/drink/coke.svg" alt="Coquinha gelada">
-                    <span class="title">Coquinha gelada</span>
+                    <span class="title">Coquinha quente</span>
                     <span class="description">Lata 350ml</span>
-                    <span class="price">R$ 4,90</span>
+                    <span class="price">R$ 5,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/drink/coke.svg" alt="Coquinha gelada">
-                    <span class="title">Coquinha gelada</span>
+                    <span class="title">Coquinha morna</span>
                     <span class="description">Lata 350ml</span>
-                    <span class="price">R$ 4,90</span>
+                    <span class="price">R$ 6,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/drink/coke.svg" alt="Coquinha gelada">
-                    <span class="title">Coquinha gelada</span>
+                    <span class="title">Coquinha s/gás</span>
                     <span class="description">Lata 350ml</span>
-                    <span class="price">R$ 4,90</span>
+                    <span class="price">R$ 7,90</span>
                 </a>
             </div>
         </section>
         <section class="dessert-option">
             <h3 class="section-title">Por fim, sua sobremesa</h3>
             <div id="dessert-options" class="options">
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/dessert/pudin.svg" alt="Pudim">
                     <span class="title">Pudim</span>
                     <span class="description">Apenas pudim</span>
                     <span class="price">R$ 7,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/dessert/pudin.svg" alt="Pudim">
-                    <span class="title">Pudim</span>
-                    <span class="description">Apenas pudim</span>
-                    <span class="price">R$ 7,90</span>
+                    <span class="title">Pundim</span>
+                    <span class="description">Apenas pundim</span>
+                    <span class="price">R$ 8,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/dessert/pudin.svg" alt="Pudim">
-                    <span class="title">Pudim</span>
-                    <span class="description">Apenas pudim</span>
-                    <span class="price">R$ 7,90</span>
+                    <span class="title">Dimpu</span>
+                    <span class="description">Apenas dimpu</span>
+                    <span class="price">R$ 9,90</span>
                 </a>
-                <a href="#" class="option">
+                <a onclick="selection()" class="option">
                     <img src="./assets/img/dessert/pudin.svg" alt="Pudim">
-                    <span class="title">Pudim</span>
-                    <span class="description">Apenas pudim</span>
-                    <span class="price">R$ 7,90</span>
+                    <span class="title">Updim</span>
+                    <span class="description">Apenas updim</span>
+                    <span class="price">R$ 10,90</span>
                 </a>
             </div>
         </section>
     </main>
 
     <footer>
-        <button id="order-button">Selecione os 3 itens para fechar o pedido</button>
+        <button type="button" onclick="modalPedido()" id="order-button" disabled>Selecione os 3 itens para fechar o
+            pedido
+        </button>
+
+        <div id="totalModal" class="modal">
+            <div class="modal-content">
+                <div class="header">
+                    <h4>Confirme seu pedido</h4>
+                </div>
+                <ul id="modalData" class="body"></ul>
+                <div class="footer">
+                    <button type="button">Tudo certo, pode pedir!</button>
+                    <a class="close">Cancelar</a>
+                </div>
+            </div>
+        </div>
     </footer>
 </div>
 
