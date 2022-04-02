@@ -99,6 +99,12 @@ function changeButton(total) {
 
 function removeSelection(nameCategory) {
     const elements = document.querySelectorAll(`#${nameCategory}-options .option`);
+    const checked = document.querySelector(`#${nameCategory}-options .option .check`);
+
+    if (checked) {
+        checked.classList.remove('check');
+    }
+
     elements.forEach(element => {
         element.style.border = 'none';
         element.style.padding = '18px 14px 13px 14px';
@@ -106,8 +112,10 @@ function removeSelection(nameCategory) {
 }
 
 function addSelection(el) {
+    const priceSpan = el.childNodes[7];
     el.style.border = '10px solid #50D074';
     el.style.padding = '8px 4px 3px 4px';
+    priceSpan.classList.add('check');
 }
 
 function addPriceAndTotal(el, nameCategory) {
