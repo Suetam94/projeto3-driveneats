@@ -221,7 +221,7 @@ footer {
     margin-top: 24px;
 }
 
-#confirm-button {
+#confirm-button, #confirm-address-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,15 +236,49 @@ footer {
     letter-spacing: 0.018em;
     color: #50D074;
     cursor: pointer;
+    text-align: center;
 }
 
-.modal-content .footer a {
+.modal-content .footer a, .modal-content .form-body a {
     color: #fff;
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.018em;
     margin-top: 16px;
+}
+
+.modal-content .form-body a {
+    text-align: center;
+}
+
+.modal-content .form-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content .form-body label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.018em;
+    margin-bottom: 13px;
+}
+
+.modal-content .form-body label input {
+    border: none;
+    height: 26px;
+    width: 230px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.modal-content .form-body label input::placeholder {
+    padding-left: 2px;
 }
 
 .close {
@@ -258,4 +292,31 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.address {
+    display: none;
+}
+
+.alert {
+    display: none;
+    padding: 20px;
+    background-color: #CF2B2B;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }

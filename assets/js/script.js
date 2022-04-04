@@ -44,6 +44,54 @@ function selection() {
     }
 }
 
+async function addressModal(el = false) {
+
+    if (el && el.value.length === 8) {
+        el.setAttribute('readonly', '');
+        const addressData = await consultCep(el.value);
+
+        if (addressData.erro) {
+            const cepAlert = document.getElementById('cep-alert');
+            cepAlert.style.display = 'block';
+            el.removeAttribute('readonly');
+        }
+
+        const completeAddress = document.getElementById('complete-address');
+        completeAddress.style.display = 'block';
+
+        // Put the address in to the form inputs;
+        completeAddress.childNodes[1].control.value = addressData.logradouro;
+        completeAddress.childNodes[5].control.value = addressData.bairro;
+        completeAddress.childNodes[7].control.value = addressData.localidade;
+        completeAddress.childNodes[9].control.value = addressData.uf;
+    }
+
+    const modal = document.getElementById("addressModal");
+    const header = document.querySelector('header');
+
+    header.style.zIndex = '0';
+    modal.style.display = "block";
+
+    const close = document.getElementsByClassName("close")[1];
+    close.onclick = function () {
+        header.style.zIndex = '1';
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            header.style.zIndex = '1';
+            modal.style.display = "none";
+        }
+    }
+}
+
+async function consultCep(cep) {
+    return fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => data);
+}
+
 function modalPedido() {
     const modal = document.getElementById("totalModal");
     const header = document.querySelector('header');
