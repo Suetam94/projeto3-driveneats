@@ -56,6 +56,7 @@ async function addressModal(el = false) {
             el.removeAttribute('readonly');
         }
 
+        sessionStorage.setItem('address', JSON.stringify(addressData));
         const completeAddress = document.getElementById('complete-address');
         completeAddress.style.display = 'block';
 
@@ -93,6 +94,7 @@ async function consultCep(cep) {
 }
 
 function modalPedido() {
+    document.getElementById("addressModal").style.display = 'none';
     const modal = document.getElementById("totalModal");
     const header = document.querySelector('header');
 
@@ -121,6 +123,9 @@ function modalData() {
     const drink = JSON.parse(sessionStorage.getItem('drink'));
     const dessert = JSON.parse(sessionStorage.getItem('dessert'));
     const total = Number(sessionStorage.getItem('total')).toFixed(2);
+    const address = JSON.parse(sessionStorage.getItem('address'));
+    const customerName = document.getElementById('formData').childNodes[1].control.value ?? 'Não informado';
+    const addressNumber = document.getElementById('formData').childNodes[7].children[1].control.value ?? 's/n'
 
     const confirmBtn = document.getElementById('confirm-button');
 
@@ -128,7 +133,9 @@ function modalData() {
 - Prato: ${food.name}
 - Bebida: ${drink.name}
 - Sobremesa: ${dessert.name}
-Total: R$ ${total.replace('.', ',')}`);
+Total: R$ ${total.replace('.', ',')}
+Nome: ${customerName}
+Endereço: ${address.logradouro}, ${addressNumber},${address.bairro}, ${address.localidade}, ${address.uf}`);
 
     const url = ' https://wa.me/5549988408008?text=';
 
@@ -137,6 +144,14 @@ Total: R$ ${total.replace('.', ',')}`);
 
 
     modalData.innerHTML = `
+        <li class="summary">
+          <span>Nome</span>
+          <span>${customerName}</span>
+        </li>
+        <li class="summary">
+          <span>Endereço</span>
+          <span>${address.logradouro}, ${addressNumber}</span>
+        </li>
         <li class="summary">
           <span>${food.name}</span>
           <span>R$ ${food.price.replace('.', ',')}</span>

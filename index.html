@@ -144,7 +144,7 @@
                 <div class="header">
                     <h4>Informe seu endereço</h4>
                 </div>
-                <form onsubmit="modalPedido()" id="formData" class="form-body">
+                <div id="formData" class="form-body">
                     <label>
                         <span>Nome:</span>
                         <input type="text" name="name" placeholder="Seu nome" required>
@@ -179,9 +179,9 @@
                             <input type="text" name="region" readonly>
                         </label>
                     </div>
-                    <button type="submit" id="confirm-address-button">Este é meu endereço, quero pedir!</button>
+                    <button type="button" onclick="modalPedido()" id="confirm-address-button">Este é meu endereço, quero pedir!</button>
                     <a class="close">Cancelar</a>
-                </form>
+                </div>
             </div>
         </div>
     </footer>
